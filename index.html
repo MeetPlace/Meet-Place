@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Meet Place</title>
+  <script language="javascript" type="text/javascript">
+    function valida(){
+    if( document.dados.email.value=="" || document.dados.email.value.indexOf('@')==-1 || document.dados.email.value.indexOf('.')==-1 )
+    {
+    alert( "Preencha campo E-MAIL corretamente!" );
+    document.dados.email.focus();
+    return false;
+    }
+    if (document.dados.senha.value=="" || document.dados.senha.value.length < 6) {
+    alert("Preencha a senha corretamente.");
+    document.dados.senha.focus();
+    return false;
+    }
+    return true;
+    }
+	function testandoEmail(){
+sValor = document.getElementById("email").value;
+		for( var i=0; i<= sValor.length; i++) { 
+         //aqui você utiliza os caracteres que quiser
+          if((sValor.charAt(i) == ' ') || (sValor.charAt(i) == '*') || ((sValor.charAt(i) == '"') && (sValor.charAt(i) == "'")) || ((sValor.charAt(i) == '[') && (sValor.charAt(i) == '^')) || (sValor.charAt(i) == '(') || (sValor.charAt(i)=='`') || (sValor.charAt(i) == ')') || (sValor.charAt(i) == '~') || (sValor.charAt(i) == ']') || (sValor.charAt(i) =='´')){
+            document.getElementById("email").disabled = true;
+            alert("Campo Email não pode ter caracteres especiais ou espaços");
+            document.getElementById("email").value = "";
+            document.getElementById("email").disabled = false;
+            break;
+           }
+      }	
+}
+function testandoSenha(){
+sValor = document.getElementById("senha").value;
+		for( var i=0; i<= sValor.length; i++) { 
+         //aqui você utiliza os caracteres que quiser
+                    if((sValor.charAt(i) == ' ') || (sValor.charAt(i) == '*') || ((sValor.charAt(i) == '"') && (sValor.charAt(i) == "'")) || ((sValor.charAt(i) == '[') && (sValor.charAt(i) == '^')) || (sValor.charAt(i) == '(') || (sValor.charAt(i)=='`') || (sValor.charAt(i) == ')') || (sValor.charAt(i) == '~') || (sValor.charAt(i) == ']') || (sValor.charAt(i) =='´')){
+            document.getElementById("senha").disabled = true;
+            alert("Campo Senha não pode ter caracteres especiais");
+            document.getElementById("senha").value = "";
+            document.getElementById("senha").disabled = false;
+            break;
+           }
+      }	
+}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-default navbar-inverse navbar-static-top">
+    <style>
+      .body{padding-top:70px;}
+    </style>
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">Meet Place</a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <form>
+          <a type="button" class="btn btn-default navbar-btn navbar-right" href="cadastrousuario.php">Cadastrar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="1000">
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="usando o tablet.jpg" class="img-responsive img-thumbnail">
+              <div class="carousel-caption">
+                <h1 class="text-center">Bem Vindo!</h1>
+                <p class="">Conheça o Meet Place</p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-md-6 text-left">
+        <form role="form" id="dados" name="dados" onsubmit="return valida();" method="POST" action="loginphp.php">
+          <a>
+            <label for="email">Email</label>
+            <input class="form-control" id="email" name="email" placeholder="Enter email" type="email" onKeyPress="testandoEmail()">
+          </a>
+          <a>
+            <label for="senha1">Senha</label>
+            <input class="form-control" id="senha" name="senha" placeholder="Password" type="password" onKeyPress="testandoSenha()">
+          </a>
+          <br>
+          <input type="submit" name="enviar" id="enviar" value="Login" class="btn btn-default navbar-btn navbar-right">
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+   <div class="row">
+        <div class="col-md-4">
+          <h2>O que é?</h2>
+          <img src="foto1.jpg" class="img-responsive img-thumbnail">
+          <p>O Meet Place é uma ferramente para auxiliar o compartilhamente de pontos
+            e locais entre pessoas de um determinado grupo.</p>
+        </div>
+        <div class="col-md-4">
+          <h2 draggable="true">Para que serve?</h2>
+          <img src="foto2.jpg" class="img-responsive img-thumbnail">
+          <p>O Meet Place tem como objetivo facilitar a logistica, tornando mais eficaz
+            a comunicação entre membros de uma mesma equipe trabalho ou ou até mesmo
+            de um grupo de amigos.</p>
+        </div>
+        <div class="col-md-4">
+          <h2>Por que usar?</h2>
+          <img src="foto3.jpg" class="img-responsive img-thumbnail">
+          <p>O Meet Place pode ser usado como uma ferramente de fins socias ou até
+            mesmo uma ferramente de trabalho. Por exemplo, uma floricultura pode utilizar
+            o "Meet Place" para facilitar a entrega de pedidos compartilhando pontos
+            e locais.</p>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

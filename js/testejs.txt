@@ -1,0 +1,28 @@
+       <script language="JavaScript" src="mascaras.js"></script>
+
+
+
+
+
+
+
+<script language=javascript>
+<!--
+function fone(contatotxt,prox) {
+switch (contatotxt.value.length) {
+	case 1:
+		contatotxt.value = "(" + contatotxt.value;
+		break;
+	case 3:
+		contatotxt.value = contatotxt.value + ")";
+		break;	
+	case 8:
+		contatotxt.value = contatotxt.value + "-";
+		break;	
+	case 13:
+		prox.focus();
+		break;
+}
+}
+</script>
+
